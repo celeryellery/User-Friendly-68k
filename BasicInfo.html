@@ -60,6 +60,21 @@
      <div class="container"> <br>
 	<p> <b> <font size ="10" color = "#008B8B"> Basic Info </font> </b> </p> <br> 
 	<p align="left"> <b>Please note:</b> Unless otherwise noted, all information and images on this page come from the <a href="http://www.easy68k.com/paulrsm/doc/68kprm.pdf">68000 Programmer's Reference Manual</a>, Copyright Motorola Inc.
+		<br> <br>
+		<p> <b> <font size ="5" color = "#008B8B"> Registers </font> </b> </p> 
+		<p align="left">The 68000 can be programmed in several different modes, depending on what you want to do with it. One of these modes is called the "Unit User Programming Model." In this mode, the available registers are organized like this:
+		<ul>
+		<li><b>Data Registers:</b> D7-D0 are 32-bit general-purpose registers. They can be used to hold individual bits, bit fields from 1 to 32 bits, bytes (8 bits), words (16 bits), long-words (32 bits), and quad-words (64 bits, requiring two adjacent registers). They can also be used as <a href="https://en.wikipedia.org/wiki/Index_register"> index registers </a>, which help the program find the location of an array in memory.</li>
+		<li><b>Address Registers:</b> A7-A0 are 32-bit general-purpose registers. They "can be used as software stack pointers, index registers, or base address registers." They can hold words or long-words. Register A7 is used as the stack pointer; when a program calls a smaller, internal program (a subroutine), the stack pointer helps keep track of the data needed to run the subroutine. Register A7 is sometimes called the User Stack Pointer or USP.</li>
+		<li><b>Program Counter:</b> In the 68k architecture, the program counter "contains the address of the instruction currently executing. During instruction execution and exception processing, the processor automatically increments the contents or places a new value in the PC."</li>
+		<li><b>Condition Code Register:</b> The 68k reserves one register as the Status Register or SR. The 5 bits in the lowest byte of the SR make up the Condition Code Register, or CCR. Each of these 5 bits is known as a flag, which can be set (turned to 1) or reset (turned to 0) as a "side effect" when an operation runs.  More about these later.</li>
+		</ul>
+		</p>
+		
+		<img src="Images\Registers.png" class="img-responsive bookit" alt="Cinque Terre" width="450" height="300">
+		<p align = "center"> <b> Figure 1. </b> Organization of registers. </p> <br>
+		
+		<br>
 		<p> <b> <font size ="5" color = "#008B8B"> Thank you for contributing to the User-Friendly 68k Project! </font> </b> </p>
 		</article>
       </div>
