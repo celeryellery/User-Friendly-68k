@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="Logo Folder/smallB.png">
+    <link rel="icon" href="Images/68Favicon.png">
 
-    <title>Bookit: Profile</title>
+    <title>Opcode Table</title>
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
-    <script src="dist/js/userProfile.js" type="text/javascript"></script>
     <script src="dist/js/database.js" type="text/javascript"></script>
     <script src="dist/js/schema.js" type="text/javascript"></script>
+    <script src="dist/js/openlib.js" type="text/javascript"></script>
     <script src="dist/js/sessionDatabase.js" type="text/javascript"></script>
-	<script src="dist/js/search.js" type="text/javascript"></script>
+    <script src="dist/js/contact.js" type="text/javascript"></script>
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
   </head>
 
   <body>
-
+	
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -42,123 +42,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+			<span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="MainPage.html">Bookit</a>
+          <a class="navbar-brand" href="MainPage.html">User-Friendly 68k</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="UserProfile.html">Profile</a></li>
             <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+		    <li><a href="BasicInfo.html">Basic Info</a></li>
+            <li><a href="OpcodeTable.html">Opcode Table</a></li>
+            <li><a href="FurtherReading.html">Further Reading</a></li>
           </ul>
-          <p class = "navbar-btn">
-            <button type="button" id="logoutBtn" class="btn btn-primary pull-right" data-toggle="modal" data-target="#logoutModal">
-            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-            Log Out
-            </button>
-          </p>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
-<div class="modal fade" id = "usernameModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class = "modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class = "modal-title" id = "myModalLabel">Change Your Username</h4>
-          </div>
-          <div class = "modal-body">
-            <form> 
-              <div class="form-group required">
-                <label class="control-label">New Username</label>
-                <input type="text" id="newUsername" class="form-control" placeholder="Use a valid email address" required="required">
-              </div>
-              <div class="form-group required">
-                <label class="control-label">Confirm New Username</label>
-                <input type="text" id="newUsernameConfirm" class="form-control" placeholder="Enter the same new valid email address" required="required">
-              </div>
-              <div id="requiredArea" class="form-group">
-                <span class="text-muted"><em><span style="color:red;">*</span> Indicates required field</em></span>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button id = "usernameSubmitBtn" type="button" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
+     <div class="container"> <br>
+	<p> <b> <font size ="10" color = "#008B8B"> Opcode Table </font> </b> </p> <br> 
+		<p> <b> <font size ="5" color = "#008B8B"> Thank you for contributing to the User-Friendly 68k Project! </font> </b> </p>
+		</article>
       </div>
-    </div>    
-	
-	
-	<div class="modal fade" id = "passwordModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class = "modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class = "modal-title" id = "myModalLabel">Change Your Password</h4>
-          </div>
-          <div class = "modal-body">
-            <form> 
-			        <div class="form-group required">
-                <label class="control-label">Current Password</label>
-                <input type="password" id="oldPassword" class="form-control" placeholder="Please enter your current password" required="required"> 
-              </div>
-              <div class="form-group required">
-                <label class="control-label">New Password</label>
-                <input type="password" id="newPassword" class="form-control" placeholder="Use a secure password" required="required">
-              </div>
-              <div class="form-group required">
-                <label class="control-label">Confirm New Password</label>
-                <input type="password" id="newPasswordConfirm" class="form-control" placeholder="Enter the new password again" required="required">
-              </div>
-              <div id="requiredArea" class="form-group">
-                <span class="text-muted"><em><span style="color:red;">*</span> Indicates required field</em></span>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button id = "passwordSubmitBtn" type="button" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>    
-
-	
-    <div class="container">
-	<img src="dist\img\home-logo.png" class="img-responsive bookit" alt="Cinque Terre" width="450" height="300">
-      <div class="starter-template">
-			<ul class="list-group">
-				<li class="list-group-item" align="left"><b>Your Bookit Account Information:</b></li>
-				<li id="emailField" class="list-group-item" align="left"><b>Username: </b></li>
-				<li class="list-group-item" align="left"><b>Password: </b>*****</li>
-				<li class="list-group-item" align="left"><button id = "resetUsernameBtn" type="button" class="btn btn-primary" align="right" data-toggle="modal" data-target="#usernameModal">Reset Username</button>   <button id = "resetPasswordBtn" type="button" class="btn btn-primary" align="right" data-toggle="modal" data-target="#passwordModal">Reset Password</button></li>
-				
-			</ul>
-			<br>
-			<br>
-			<div class="list-group">
-				<li class="list-group-item" align="left"><b>Books You Have Posted:</b></li>
-        <div class="alert alert-info alert-dismissible" style="margin-bottom: 0%" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="color:red"></span></button>
-          Book Item 1
-        </div>
-				<div class="alert alert-info alert-dismissible" style="margin-bottom: 0%" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="color:red"></span></button>
-          Book Item 2
-        </div>
-        <div class="alert alert-info alert-dismissible" style="margin-bottom: 0%" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="color:red"></span></button>
-          Book Item 3
-        </div>
-        <div class="alert alert-info alert-dismissible" style="margin-bottom: 0%" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true" style="color:red"></span></button>
-          Book Item 4
-        </div>
-			</div>
-      </div>
-
-    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -167,6 +70,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--<script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <!-- // <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
 </html>
