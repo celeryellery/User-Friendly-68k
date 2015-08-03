@@ -74,6 +74,40 @@
 		<img src="Images\Registers.png" class="img-responsive bookit" alt="Cinque Terre" width="450" height="300">
 		<p align = "center"> <b> Figure 1. </b> Organization of registers. </p> <br>
 		
+		<p> <b> <font size ="5" color = "#008B8B"> Assembling </font> </b> </p> 
+		<p align="left"> Low-level code written for a specific processor is called <b>assembly code</b> when it is written out in words. Assembly language can be hard to understand, but it is mostly human-readable. Every processor also has an <b>assembler</b>, 
+		                 which is a special-purpose program that "translates" the human-readable assembly code into <b>machine code</b>, which is just binary zeros and ones (though it is often viewed as hex numbers for convenience). The process of turning the code from words into numbers is called <b>assembling</b>. Turning
+						 the numbers back into words is called <b>disassembling</b>, and is done by <b>disassemblers</b>. For example, .exe files on Windows computers contain the binary machine code that is ready for your computer to run. 
+						 <br>
+						 When you are given an assembly language program that is hard to understand, you can look at the corresponding hex machine code (given on the left in a Listfile from the EASy68k simulator) to learn more about the program. Let's look at an example program to see how this is done.
+						 <img src="Images\AssemblyExample.png" class="img-responsive bookit" alt="Cinque Terre" width="450" height="300">
+						 <p align = "center"> <b> Figure 2. </b> Example assembly language program for the 68k, written by Professor Arnold Berger. </p> <br>
+						 Let's look at the numbers on the left side. On the first important line it says: 00000400 303C A7FF. The first number tells you that in address 0000 4000, the first line of assembly code has been stored. The next two numbers are the actual code that is stored in address 0000 4000, just translated into numbers instead of words.
+						 We can use the 68k manual (http://www.easy68k.com/paulrsm/doc/68kprm.pdf) to act like the assembler if we want to figure out what the numbers mean. 
+						 <br>
+						 So we know from reading the assembly code that this instruction moves a word, or two bytes of data, which has been labeled data2. We can see from looking in the symbol table at the bottom of the page that data2 is A7FF. That is why this number shows up in this line of code: the processor has to be told what data it is moving. Then the other number on the line of code, 303C, tells us what instruction is being done (MOVE), the size of that instruction (Word), the source (immediate number), the destination (D0), and the addressing mode. Addressing modes are different ways the processor can find data, such as using pointers or the postincrement/predecrement operators. We don't have to worry about those here, because this instruction is using the simplest addressing mode, direct addressing. 
+						 <br>
+						 To understand what the number 303C tells us, the first step is to write it in binary: 0011 0000 0011 1100. Then we have to look up the information about MOVE in the manual (pages 219-221). This box tells us the meaning of each bit in the 16-bit binary number we just found.
+						 <img src="Images\MOVEinstructionformat.png" class="img-responsive bookit" alt="Cinque Terre" width="450" height="300">
+						 <p align = "center"> <b> Figure 3. </b> Bit-by-bit meaning of the MOVE instruction, from the 68k programmer's manual. </p> <br>
+						 The tables on the next two pages of the manual tell us which bits represent which modes. Here's the breakdown:
+						 <ul>
+						 <li>Bits 15 to 14: 00 tells us this is a MOVE operation
+						 <li>Bits 13 to 12: 11 tells us the size of the data is a word
+						 <li>Bits 11 to 9: 000 tells us that the destination register is D0
+						 <li>Bits 8 to 6: 000 tells us that the destination addressing mode is direct
+						 <li>Bits 5 to 3 and 2 to 0: 111 100 tells us that we are using an immediate number as data (that is, a number value instead of the address of a place where a number is stored)
+						 </ul>
+						 <br>
+						 You can do this process for any assembly language command, but it is a lot of work. Here is the bottom line: 
+						 <ul>
+						 <li>A MOVE instruction can vary in length depending on the length of the data and the addressing mode
+						 <li>MOVE.W for immediate numbers usually takes 4 bytes to store in memory: two bytes for the data, like A7FF, and two bytes to explain the instruction, like 303C
+						 <li>Sometimes move commands only take 2 bytes to store in memory, such as the MOVE.B command on line 35 of the example program, because the data is accessed indirectly. This means the program only has to know the numbers of the addresses that matter, and it doesn't have to use the extra 4 bytes for the data.
+						 </ul>
+		
+		</p>
+		
 		<br>
 		<p> <b> <font size ="5" color = "#008B8B"> Thank you for contributing to the User-Friendly 68k Project! </font> </b> </p>
 		</article>
