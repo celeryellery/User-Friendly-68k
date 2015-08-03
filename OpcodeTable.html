@@ -60,6 +60,22 @@
      <div class="container"> <br>
 	<p> <b> <font size ="10" color = "#008B8B"> Opcode Table </font> </b> </p> <br> 
 
+	<p align="left">
+	<b>General Information:</b><br>
+	<ul>
+	<li> The default number system when writing 68k assembly is decimal
+	<li> All hexadecimal numbers are preceded by $
+	<li> All binary numbers are preceded by %
+	<li> If you want to program to interpret any number just as a regular numeric value and nothing else, 
+	     write # in front of it. Then it is called an <b>immediate</b> value.
+	<li> Assembly commands that talk about two locations have the source written first, then the destination.
+	<li> There are many different methods to tell the processor where the source and destination are. These different 
+	     methods are called <b>addressing modes</b>. Refer to the <a href="http://www.easy68k.com/paulrsm/doc/68kprm.pdf">68000 Programmer's Reference Manual</a> for more information on these.
+    <li> The notation Dn refers to any data register, D0-D7. Similarly, An refers to any address register A0-A6. (A7 is the stack pointer so it is not included.)
+    <li> Unless otherwise noted, all information on this page come from the <a href="http://www.easy68k.com/paulrsm/doc/68kprm.pdf">68000 Programmer's Reference Manual</a>, Copyright Motorola Inc.
+	</ul>
+	</p>
+	<br>
 	<div class="container">
   <table class="table table-bordered table-hover table-condensed">
     <thead>
@@ -68,8 +84,8 @@
         <th>Data Size</th>
         <th>Description</th>
         <th>Example</th>
-        <th>Sources</th>
-        <th>Destinations</th>
+        <th>Source Modes</th>
+        <th>Destination Modes</th>
         <th>CCR State</th>
       </tr>
     </thead>
@@ -77,10 +93,10 @@
       <tr>
         <td>ADD</td>
         <td>B, W, L</td>
-        <td>Does +</td>
-        <td>ADD thing thing</td>
-        <td>Show Sources</td>
-        <td>Show Destinations</td>
+        <td>Adds source to destination <br>using binary addition & stores result in destination</td>
+        <td>ADD.W #$ABCD, D0</td>
+        <td>Dn, An (W or L only), (An), (An)+, -(An), #data</td>
+        <td>Dn, An (W or L only), (An), (An)+, -(An), #data</td>
         <td><table class="table table-bordered table-condensed"><tbody>
         	<tr><td align="center">X</td>
         	    <td align="center">N</td>
