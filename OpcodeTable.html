@@ -112,9 +112,29 @@
       </tr>
       <tr>
         <td>MOVE</td>
+        <td>B, W, L</td>
+        <td>Copies data from<br>source to destination</td>
+        <td>MOVE.W #$ABCD, D0</td>
+        <td>Dn, An, (An), (An)+, <br>-(An), #data</td>
+        <td>Dn, (An), (An)+, <br>-(An)</td>
+        <td><table class="table table-bordered table-condensed"><tbody>
+        	<tr><td align="center">X</td>
+        	    <td align="center">N</td>
+        	    <td align="center">Z</td>
+        	    <td align="center">V</td>
+        	    <td align="center">C</td></tr>
+        	<tr><td align="center">Set<br>directly</td>
+        	    <td align="center">Set<br>directly</td>
+        	    <td align="center">Set<br>directly</td>
+        	    <td align="center">Set<br>directly</td>
+        	    <td align="center">Set<br>directly</td></tr>
+        </tbody></tbody></table></td>
+      </tr>
+      <tr>
+        <td>ADDI</td>
         <td> </td>
-        <td>Overwrites stuff</td>
-        <td>MOVE thing thing</td>
+        <td>Adds immediate</td>
+        <td>ADDI #n, D0</td>
         <td>Show Sources</td>
         <td>Show Destinations</td>
         <td><table class="table table-bordered table-condensed"><tbody>
@@ -131,12 +151,12 @@
         </tbody></tbody></table></td>
       </tr>
       <tr>
-        <td>ADDI</td>
         <td> </td>
-        <td>Adds immediate</td>
-        <td>ADDI #n, D0</td>
-        <td>Show Sources</td>
-        <td>Show Destinations</td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
         <td><table class="table table-bordered table-condensed"><tbody>
         	<tr><td align="center">X</td>
         	    <td align="center">N</td>
